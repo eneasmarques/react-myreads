@@ -16,8 +16,6 @@ export default class Main extends Component {
   generateShelfs = () => {
     const { books } = this.props;
 
-    //Remove duplicates shelfs
-    //Create key and value shelfs state
     const shelfs = books
       .map(book => book.shelf)
       .filter(
@@ -36,14 +34,13 @@ export default class Main extends Component {
   };
 
   componentDidMount() {
-    //console.log("Main:".padEnd(20), "componentDidMount");
     this.generateShelfs();
   }
 
   render() {
     const { books } = this.props;
     const { shelfs } = this.state;
-    //console.log("Main:".padEnd(20), this.props.updateShelf);
+
     return (
       <>
         <div className="list-books">

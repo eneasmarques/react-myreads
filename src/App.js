@@ -30,8 +30,6 @@ export default class BooksApp extends Component {
 
   // Update shelf of the book
   updateShelf = async (book, shelf) => {
-    // console.log("App:".padEnd(20), "startUpdateShelf");
-    // Update books and sort shelves
     await update(book, shelf).then(resp => {
       book.shelf = shelf;
       this.setState({
@@ -40,18 +38,10 @@ export default class BooksApp extends Component {
         )
       });
     });
-    // console.log(
-    //   "App:".padEnd(20),
-    //   "endUpdateShelf",
-    //   this.state.books,
-    //   this.state
-    // );
   };
 
   render() {
-    // console.log("App:".padEnd(20), this.state.books);
     const { books, updateShelf } = this.state;
-    //books[0] && this.state.updateShelf(books[0], books[0].shelf);
     return (
       <div className="app">
         <Switch>
