@@ -13,6 +13,7 @@ export default class Main extends Component {
     ]
   };
 
+  // verifica quais pratelerias tem pelo menos 1 livro
   generateShelfs = () => {
     const { books } = this.props;
 

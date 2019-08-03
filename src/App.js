@@ -13,9 +13,8 @@ export default class BooksApp extends Component {
     updateShelf: (book, shelf) => this.updateShelf(book, shelf)
   };
 
-  async componentDidMount() {
-    console.log("App:".padEnd(20), "componentDidMount");
-    await getAll().then(books => {
+  componentDidMount() {
+    getAll().then(books => {
       // Sort shelves
       books.sort(this.sortShelves);
 
@@ -29,8 +28,8 @@ export default class BooksApp extends Component {
   };
 
   // Update shelf of the book
-  updateShelf = async (book, shelf) => {
-    await update(book, shelf).then(resp => {
+  updateShelf = (book, shelf) => {
+    update(book, shelf).then(resp => {
       book.shelf = shelf;
       this.setState({
         books: [...this.state.books.filter(b => b.id !== book.id), book].sort(
